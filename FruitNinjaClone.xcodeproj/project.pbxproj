@@ -15,6 +15,17 @@
 		45FBC4CE28E72A4600904923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4CC28E72A4600904923 /* Main.storyboard */; };
 		45FBC4D028E72A4C00904923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4CF28E72A4C00904923 /* Assets.xcassets */; };
 		45FBC4D328E72A4C00904923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4D128E72A4C00904923 /* LaunchScreen.storyboard */; };
+		45FBC4DE28E7477200904923 /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4D928E7477200904923 /* whack.caf */; };
+		45FBC4DF28E7477200904923 /* swoosh3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4DA28E7477200904923 /* swoosh3.caf */; };
+		45FBC4E028E7477200904923 /* swoosh1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4DB28E7477200904923 /* swoosh1.caf */; };
+		45FBC4E128E7477200904923 /* swoosh2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4DC28E7477200904923 /* swoosh2.caf */; };
+		45FBC4E228E7477200904923 /* wrong.caf in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4DD28E7477200904923 /* wrong.caf */; };
+		45FBC4E928E7479300904923 /* sliceHitEnemy.sks in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4E328E7479200904923 /* sliceHitEnemy.sks */; };
+		45FBC4EA28E7479300904923 /* explosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4E428E7479200904923 /* explosion.caf */; };
+		45FBC4EB28E7479300904923 /* sliceHitBomb.sks in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4E528E7479200904923 /* sliceHitBomb.sks */; };
+		45FBC4EC28E7479300904923 /* launch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4E628E7479200904923 /* launch.caf */; };
+		45FBC4ED28E7479300904923 /* sliceFuse.sks in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4E728E7479300904923 /* sliceFuse.sks */; };
+		45FBC4EE28E7479300904923 /* sliceBombFuse.caf in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4E828E7479300904923 /* sliceBombFuse.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +38,17 @@
 		45FBC4CD28E72A4600904923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45FBC4CF28E72A4C00904923 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45FBC4D228E72A4C00904923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		45FBC4D928E7477200904923 /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
+		45FBC4DA28E7477200904923 /* swoosh3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh3.caf; sourceTree = "<group>"; };
+		45FBC4DB28E7477200904923 /* swoosh1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh1.caf; sourceTree = "<group>"; };
+		45FBC4DC28E7477200904923 /* swoosh2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh2.caf; sourceTree = "<group>"; };
+		45FBC4DD28E7477200904923 /* wrong.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wrong.caf; sourceTree = "<group>"; };
+		45FBC4E328E7479200904923 /* sliceHitEnemy.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sliceHitEnemy.sks; sourceTree = "<group>"; };
+		45FBC4E428E7479200904923 /* explosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion.caf; sourceTree = "<group>"; };
+		45FBC4E528E7479200904923 /* sliceHitBomb.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sliceHitBomb.sks; sourceTree = "<group>"; };
+		45FBC4E628E7479200904923 /* launch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = launch.caf; sourceTree = "<group>"; };
+		45FBC4E728E7479300904923 /* sliceFuse.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sliceFuse.sks; sourceTree = "<group>"; };
+		45FBC4E828E7479300904923 /* sliceBombFuse.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sliceBombFuse.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +89,17 @@
 				45FBC4CC28E72A4600904923 /* Main.storyboard */,
 				45FBC4CF28E72A4C00904923 /* Assets.xcassets */,
 				45FBC4D128E72A4C00904923 /* LaunchScreen.storyboard */,
+				45FBC4DB28E7477200904923 /* swoosh1.caf */,
+				45FBC4DC28E7477200904923 /* swoosh2.caf */,
+				45FBC4DA28E7477200904923 /* swoosh3.caf */,
+				45FBC4D928E7477200904923 /* whack.caf */,
+				45FBC4DD28E7477200904923 /* wrong.caf */,
+				45FBC4E428E7479200904923 /* explosion.caf */,
+				45FBC4E628E7479200904923 /* launch.caf */,
+				45FBC4E828E7479300904923 /* sliceBombFuse.caf */,
+				45FBC4E728E7479300904923 /* sliceFuse.sks */,
+				45FBC4E528E7479200904923 /* sliceHitBomb.sks */,
+				45FBC4E328E7479200904923 /* sliceHitEnemy.sks */,
 			);
 			path = FruitNinjaClone;
 			sourceTree = "<group>";
@@ -131,9 +164,20 @@
 			files = (
 				45FBC4CE28E72A4600904923 /* Main.storyboard in Resources */,
 				45FBC4C528E72A4600904923 /* GameScene.sks in Resources */,
+				45FBC4ED28E7479300904923 /* sliceFuse.sks in Resources */,
 				45FBC4D028E72A4C00904923 /* Assets.xcassets in Resources */,
+				45FBC4EC28E7479300904923 /* launch.caf in Resources */,
 				45FBC4D328E72A4C00904923 /* LaunchScreen.storyboard in Resources */,
 				45FBC4C728E72A4600904923 /* Actions.sks in Resources */,
+				45FBC4E128E7477200904923 /* swoosh2.caf in Resources */,
+				45FBC4EB28E7479300904923 /* sliceHitBomb.sks in Resources */,
+				45FBC4EA28E7479300904923 /* explosion.caf in Resources */,
+				45FBC4DE28E7477200904923 /* whack.caf in Resources */,
+				45FBC4DF28E7477200904923 /* swoosh3.caf in Resources */,
+				45FBC4EE28E7479300904923 /* sliceBombFuse.caf in Resources */,
+				45FBC4E928E7479300904923 /* sliceHitEnemy.sks in Resources */,
+				45FBC4E228E7477200904923 /* wrong.caf in Resources */,
+				45FBC4E028E7477200904923 /* swoosh1.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
