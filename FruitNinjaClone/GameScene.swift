@@ -21,6 +21,9 @@ class GameScene: SKScene {
     var livesImages = [SKSpriteNode]()
     var lives = 3
     
+    var activeSliceBG : SKShapeNode!
+    var activeSliceFG : SKShapeNode!
+    
     override func didMove(to view: SKView) {
      
         let background = SKSpriteNode(imageNamed: "sliceBackground")
@@ -49,7 +52,14 @@ class GameScene: SKScene {
     }
     
     func createLives(){
-        
+        for i in 0...3 {
+            let spriteNode = SKSpriteNode(imageNamed: "sliceLife")
+            spriteNode.position = CGPoint(x: CGFloat(834 + (i*70)), y: 720)
+            addChild(spriteNode)
+            livesImages.append(spriteNode)
+            
+            
+        }
     }
     
     func createSlices(){
