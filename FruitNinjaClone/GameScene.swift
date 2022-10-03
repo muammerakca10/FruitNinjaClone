@@ -47,6 +47,7 @@ class GameScene: SKScene {
     var chainDelay = 3.0
     var nextSequenceQueued = true
     
+    var isGameEnded = false
     //Global Variables Ended
     
     override func didMove(to view: SKView) {
@@ -120,6 +121,9 @@ class GameScene: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard isGameEnded == false else {return}
+
+        
         guard let touch = touches.first else {return}
         let location = touch.location(in: self)
         activeSlicePoints.append(location)
@@ -179,14 +183,51 @@ class GameScene: SKScene {
                 }
                 
                 run(SKAction.playSoundFileNamed("explosion.caf", waitForCompletion: false))
-                endGame()
+                endGame(triggeredByBomb: true)
             }
         }
     }
     
-    func endGame(){
+    func substractLife(){
+        lives -= 1
+        run(SKAction.playSoundFileNamed("wrong.caf", waitForCompletion: false))
         
+        var life : SKSpriteNode
+        
+        if lives == 2 {
+            life = livesImages[0]
+        } else if lives == 1 {
+            life = livesImages[1]
+        } else {
+            life = livesImages[2]
+            endGame(triggeredByBomb : false)
+        }
+        
+        life.texture = SKTexture(imageNamed: "sliceLifeGone")
+        life.xScale = 1.3
+        life.yScale = 1.3
+        life.run(SKAction.scale(to: 1, duration: 0.1))
     }
+    
+    func endGame(triggeredByBomb : Bool){
+        guard isGameEnded == false else {return}
+        
+        isGameEnded = true
+        physicsWorld.speed = 0
+        isUserInteractionEnabled = false
+        bombSoundEffect?.stop()
+        bombSoundEffect = nil
+        
+        if triggeredByBomb {
+            livesImages[0].texture = SKTexture(imageNamed: "sliceLifeGone")
+            livesImages[1].texture = SKTexture(imageNamed: "sliceLifeGone")
+            livesImages[2].texture = SKTexture(imageNamed: "sliceLifeGone")
+        } else {
+            
+        }
+    }
+    
+    
     
     func redrawActiveSlice(){
         
@@ -316,10 +357,6 @@ class GameScene: SKScene {
         activeEnemies.append(enemy)
     }
     
-    func substractLife(){
-        
-    }
-    
     
     override func update(_ currentTime: TimeInterval) {
         
@@ -366,6 +403,9 @@ class GameScene: SKScene {
     }
     
     func tossEnemies(){
+        guard isGameEnded == false else {return}
+
+        
         popupTime *= 0.991
         chainDelay *= 0.99
         physicsWorld.speed *= 1.02
