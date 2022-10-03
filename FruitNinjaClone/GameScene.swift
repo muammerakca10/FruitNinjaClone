@@ -23,6 +23,8 @@ class GameScene: SKScene {
     var activeSliceBG : SKShapeNode!
     var activeSliceFG : SKShapeNode!
     
+    var activeSlicePoints = [CGPoint]()
+    
     override func didMove(to view: SKView) {
      
         let background = SKSpriteNode(imageNamed: "sliceBackground")
@@ -49,7 +51,7 @@ class GameScene: SKScene {
         gameScore.fontSize = 48
         addChild(gameScore)
         
-        gameScore.position = CGPoint(x: 8, y: 8)
+        gameScore.position = CGPoint(x: 10, y: 10)
         score = 0
     }
     
@@ -79,5 +81,21 @@ class GameScene: SKScene {
         
         addChild(activeSliceBG)
         addChild(activeSliceFG)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {return}
+        let location = touch.location(in: self)
+        activeSlicePoints.append(location)
+        redrawActiveSlice()
+    }
+    
+    func redrawActiveSlice(){
+        
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        activeSliceBG.run(SKAction.fadeOut(withDuration: 0.25))
+        activeSliceFG.run(SKAction.fadeOut(withDuration: 0.25))
     }
 }
