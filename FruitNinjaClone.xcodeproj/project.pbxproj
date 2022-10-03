@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		45FBC4C328E72A4600904923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBC4C228E72A4600904923 /* AppDelegate.swift */; };
 		45FBC4C528E72A4600904923 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4C428E72A4600904923 /* GameScene.sks */; };
-		45FBC4C728E72A4600904923 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4C628E72A4600904923 /* Actions.sks */; };
 		45FBC4C928E72A4600904923 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBC4C828E72A4600904923 /* GameScene.swift */; };
 		45FBC4CB28E72A4600904923 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBC4CA28E72A4600904923 /* GameViewController.swift */; };
 		45FBC4CE28E72A4600904923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45FBC4CC28E72A4600904923 /* Main.storyboard */; };
@@ -32,7 +31,6 @@
 		45FBC4BF28E72A4600904923 /* FruitNinjaClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitNinjaClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45FBC4C228E72A4600904923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45FBC4C428E72A4600904923 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		45FBC4C628E72A4600904923 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		45FBC4C828E72A4600904923 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		45FBC4CA28E72A4600904923 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		45FBC4CD28E72A4600904923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 			children = (
 				45FBC4C228E72A4600904923 /* AppDelegate.swift */,
 				45FBC4C428E72A4600904923 /* GameScene.sks */,
-				45FBC4C628E72A4600904923 /* Actions.sks */,
 				45FBC4C828E72A4600904923 /* GameScene.swift */,
 				45FBC4CA28E72A4600904923 /* GameViewController.swift */,
 				45FBC4CC28E72A4600904923 /* Main.storyboard */,
@@ -168,7 +165,6 @@
 				45FBC4D028E72A4C00904923 /* Assets.xcassets in Resources */,
 				45FBC4EC28E7479300904923 /* launch.caf in Resources */,
 				45FBC4D328E72A4C00904923 /* LaunchScreen.storyboard in Resources */,
-				45FBC4C728E72A4600904923 /* Actions.sks in Resources */,
 				45FBC4E128E7477200904923 /* swoosh2.caf in Resources */,
 				45FBC4EB28E7479300904923 /* sliceHitBomb.sks in Resources */,
 				45FBC4EA28E7479300904923 /* explosion.caf in Resources */,
@@ -338,7 +334,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.action-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -369,7 +364,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.action-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

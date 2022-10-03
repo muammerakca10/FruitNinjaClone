@@ -6,13 +6,12 @@
 //
 
 import SpriteKit
-import GameplayKit
 
 class GameScene: SKScene {
     
     var gameScore : SKLabelNode!
-    
-    var score = 0{
+        
+    var score = 0 {
         didSet{
             gameScore.text = "Score: \(score)"
         }
@@ -30,6 +29,9 @@ class GameScene: SKScene {
         background.position = CGPoint(x: 512, y: 384)
         background.blendMode = .replace
         background.zPosition = -1
+        addChild(background)
+        
+        
         
         physicsWorld.speed = 0.85
         physicsWorld.gravity = CGVector(dx: 0, dy: -6)
@@ -52,7 +54,7 @@ class GameScene: SKScene {
     }
     
     func createLives(){
-        for i in 0...3 {
+        for i in 0...2 {
             let spriteNode = SKSpriteNode(imageNamed: "sliceLife")
             spriteNode.position = CGPoint(x: CGFloat(834 + (i*70)), y: 720)
             addChild(spriteNode)
