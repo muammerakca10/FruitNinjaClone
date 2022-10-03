@@ -6,11 +6,13 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class GameScene: SKScene {
     
+    //Global Variables
     var gameScore : SKLabelNode!
-
+    
     var score = 0 {
         didSet{
             gameScore.text = "Score: \(score)"
@@ -31,10 +33,24 @@ class GameScene: SKScene {
         case never, always, random
     }
     
+    enum SequenceType : CaseIterable {
+        case oneNoBomb, one, twoWithOneBomb, two, three, four, chain, fastChain
+    }
+    
     var activeEnemies = [SKSpriteNode]()
     
+    var bombSoundEffect : AVAudioPlayer?
+    
+    var popupTime = 0.9
+    var sequence = [SequenceType]()
+    var sequencePosition = 0
+    var chainDelay = 3.0
+    var nextSequenceQueued = true
+    
+    //Global Variables Ended
+    
     override func didMove(to view: SKView) {
-     
+        
         let background = SKSpriteNode(imageNamed: "sliceBackground")
         background.position = CGPoint(x: 512, y: 384)
         background.blendMode = .replace
@@ -170,7 +186,31 @@ class GameScene: SKScene {
         }
         
         if enemyType == 0 {
-            //bomb code
+            enemy = SKSpriteNode()
+            enemy.zPosition = 1
+            enemy.name = "bombContainer"
+            
+            let bombImage = SKSpriteNode(imageNamed: "sliceBomb")
+            bombImage.name = "bomb"
+            enemy.addChild(bombImage)
+            
+            if bombSoundEffect != nil {
+                bombSoundEffect?.stop()
+                bombSoundEffect = nil
+            }
+            
+            if let path = Bundle.main.url(forResource: "sliceBombFuse", withExtension: "caf") {
+                if let sound = try? AVAudioPlayer(contentsOf: path){
+                    bombSoundEffect = sound
+                    sound.play()
+                }
+            }
+            
+            if let emitter = SKEmitterNode(fileNamed: "sliceFuse") {
+                emitter.position = CGPoint(x: 64, y: 76)
+                enemy.addChild(emitter)
+            }
+            
         } else {
             enemy = SKSpriteNode(imageNamed: "penguin")
             run(SKAction.playSoundFileNamed("launch.caf", waitForCompletion: false))
@@ -204,5 +244,77 @@ class GameScene: SKScene {
         
         addChild(enemy)
         activeEnemies.append(enemy)
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        var bombCount = 0
+        
+        for node in activeEnemies {
+            if node.name == "bombContainer"{
+                bombCount += 1
+                break
+            }
+        }
+        
+        if bombCount == 0 {
+            bombSoundEffect?.stop()
+            bombSoundEffect = nil
+        }
+    }
+    
+    func tossEnemies(){
+        popupTime *= 0.991
+        chainDelay *= 0.99
+        physicsWorld.speed *= 1.02
+        
+        let sequenceType = sequence[sequencePosition]
+        
+        switch sequenceType {
+            
+        case .oneNoBomb :
+            createEnemy(forceBomb: .never)
+            
+        case .one :
+            createEnemy()
+            
+        case .twoWithOneBomb :
+            createEnemy(forceBomb: .always)
+            createEnemy(forceBomb: .never)
+            
+        case .two :
+            createEnemy()
+            createEnemy()
+            
+        case .three :
+            createEnemy()
+            createEnemy()
+            createEnemy()
+            
+        case .four :
+            createEnemy()
+            createEnemy()
+            createEnemy()
+            createEnemy()
+            
+        case .chain :
+            createEnemy()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 5.0)) { [weak self] in self?.createEnemy() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 5.0 * 2)) { [weak self] in self?.createEnemy() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 5.0 * 3)) { [weak self] in self?.createEnemy() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 5.0 * 4)) { [weak self] in self?.createEnemy() }
+            
+            
+        case .fastChain :
+            createEnemy()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0)) { [weak self] in self?.createEnemy() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * 2)) { [weak self] in self?.createEnemy() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * 3)) { [weak self] in self?.createEnemy() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * 4)) { [weak self] in self?.createEnemy() }
+        }
+        sequencePosition += 1
+        nextSequenceQueued = false
+        
     }
 }
