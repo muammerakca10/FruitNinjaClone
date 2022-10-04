@@ -34,7 +34,7 @@ class GameScene: SKScene {
     }
     
     enum SequenceType : CaseIterable {
-        case oneNoBomb, one, twoWithOneBomb, two, three, four, chain, fastChain
+        case oneNoBomb, one, twoWithOneBomb, two, three, four, chain, fastChain, boss
     }
     
     var activeEnemies = [SKSpriteNode]()
@@ -68,7 +68,7 @@ class GameScene: SKScene {
         createLives()
         createSlices()
         
-        sequence = [.oneNoBomb, .oneNoBomb, .twoWithOneBomb, .twoWithOneBomb, .three, .one, .chain]
+        sequence = [.oneNoBomb, .oneNoBomb, .twoWithOneBomb, .twoWithOneBomb, .three, .one, .chain, .boss]
         
         for _ in 1...1000 {
             if let nextSequence = SequenceType.allCases.randomElement() {
@@ -322,6 +322,9 @@ class GameScene: SKScene {
                 enemy.addChild(emitter)
             }
             
+        } else if enemyType == 2 {
+            enemy = SKSpriteNode(imageNamed: "boss")
+            run(SKAction.playSoundFileNamed("launch.caf", waitForCompletion: false))
         } else {
             enemy = SKSpriteNode(imageNamed: "penguin")
             run(SKAction.playSoundFileNamed("launch.caf", waitForCompletion: false))
@@ -355,6 +358,7 @@ class GameScene: SKScene {
         
         addChild(enemy)
         activeEnemies.append(enemy)
+        print(activeEnemies)
     }
     
     
@@ -455,6 +459,9 @@ class GameScene: SKScene {
             DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * 2)) { [weak self] in self?.createEnemy() }
             DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * 3)) { [weak self] in self?.createEnemy() }
             DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * 4)) { [weak self] in self?.createEnemy() }
+            
+        case .boss :
+            createEnemy(forceBomb: .never)
         }
         sequencePosition += 1
         nextSequenceQueued = false
